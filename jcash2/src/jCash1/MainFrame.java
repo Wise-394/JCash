@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -135,6 +137,9 @@ public class MainFrame extends JFrame {
 		JButton btnHelp = new JButton("HELP");
 		btnHelp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"1.Cash in - click the cash in button and enter ammount to cash in"
+						+ "\n2.Cash out - click the cash out button and enter ammount to cash out"
+						+ "\n3.Reset button - clicking the reset button will empty your balance");
 			}
 		});
 		btnHelp.setForeground(new Color(255, 255, 255));
@@ -146,6 +151,10 @@ public class MainFrame extends JFrame {
 		JButton btnAboutUs = new JButton("ABOUT US");
 		btnAboutUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"JCash is a convenient and lightweight money management system that allows you to easily\r\n"
+						+ "handle your financial transactions. With JCash, you can effortlessly cash in and cash out,\r\n"
+						+ "enabling you to securely manage your money on the go.\n\n DEVELOPERS:\n "
+						+"Jhenn Rod Dumlao \nJoshua Forbile\nRochelle Ann De leon \nPrince Nikko Payopay \nDonniel Cruz \nAngelo Gabat ");
 			}
 		});
 		btnAboutUs.setForeground(new Color(255, 255, 255));
