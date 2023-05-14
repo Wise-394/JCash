@@ -12,13 +12,17 @@ import java.io.IOException;
 public class MethodsAndVariables {
 	private float balance = 0;
 	private String userName;
-	public String balanceFile = "WAGMONGBUBUKSAN.txt";
+	public String balanceFile = "DB/bal.txt";
+	public String passwordFile = "DB/pw.txt";
+	private String password = "1111";
 	
 	//get and set methods
 	public float getBalance() { return this.balance; }
 	public void setBalance(float balanceToSet) { this.balance = balanceToSet; }
 	public String getUserName() { return this.userName; }
 	public void setUsername(String userNameToSet) { this.userName = userNameToSet; }
+	public String getPassword() { return password; }
+	public void setPassword(String password) { this.password = password; }
 	
 	//cash in/out method
 	public void cashOut(float moneyToCashOut) { this.balance -= moneyToCashOut; 	saveBalance();}
@@ -59,6 +63,8 @@ public class MethodsAndVariables {
 	{
 		setBalance(0);
 		saveBalance();
+		setPassword("1111");
+		savePassword();
 	}
 	
 	
@@ -97,6 +103,68 @@ public class MethodsAndVariables {
 		
 		
 	}
+	public void savePassword() 
+	{
+		try {
+		      FileWriter fileWriter = new FileWriter(passwordFile);
+		      BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+		      bufferedWriter.write(getPassword());
+		      bufferedWriter.close();
+		    } catch (IOException e)
+			{
+		      e.printStackTrace();
+		    }
+	}
+	public String loadPassword()
+	{
+		String passwordToReturn = null;
+		 try {
+		      FileReader fileReader = new FileReader(passwordFile);
+		      BufferedReader bufferedReader = new BufferedReader(fileReader);
+		      passwordToReturn = bufferedReader.readLine();
+		      bufferedReader.close();
+		      return passwordToReturn;
+		    } catch (IOException e) {
+		    
+		      e.printStackTrace();
+		      return passwordToReturn;
+		    } catch (NumberFormatException e) {
+		      e.printStackTrace();
+		      return passwordToReturn;
+		    }
+	
+		}
+	 public void register() 
+	 {
+		 try 
+		 {
+		String askPassword = JOptionPane.showInputDialog("welcome to jCash \nENTER YOUR NEW PASSWORD");
+		if(!askPassword.equals(null))
+		{
+		setPassword(askPassword);
+		savePassword();
+		}
+		}
+		 catch(Exception e)
+		{
+			 JOptionPane.showMessageDialog(null,"You didnt enter a password \nExiting...");
+			 System.exit(0);
+		}
+	 }
+	 
+	 public boolean login() 
+	 {
+		 String askPassword = JOptionPane.showInputDialog("welcome back! \nENTER YOUR PASSWORD");
+		 if(askPassword.equals(loadPassword()))
+		 {
+			 return true;
+		 }
+		 else 
+		 {
+			 return false;
+		 }
+	 }
+	
 }	
 
 

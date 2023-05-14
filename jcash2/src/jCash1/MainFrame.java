@@ -18,18 +18,34 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class MainFrame extends JFrame {
-
+	MethodsAndVariables jCash = new MethodsAndVariables();
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		final String DEFAULTPASS = "1111";
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MainFrame frame = new MainFrame();
+					if(DEFAULTPASS.equals(frame.jCash.loadPassword()))
+					{
+					frame.jCash.register();
 					frame.setVisible(true);
+					}
+					else 
+					{
+						if(frame.jCash.login()) 
+						{
+							frame.setVisible(true);
+						}
+						else 
+						{
+							JOptionPane.showMessageDialog(null,"WRONG PASSWORD \n exiting.....");
+						}
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,11 +58,11 @@ public class MainFrame extends JFrame {
 	 */
 	public MainFrame() {
 		JLabel textBalance = new JLabel("");
-		MethodsAndVariables jCash = new MethodsAndVariables();
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent e) {
 				textBalance.setText(jCash.loadBalance()+"");
+				jCash.setBalance(jCash.loadBalance());
 			}
 		});
 		
