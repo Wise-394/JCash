@@ -5,30 +5,11 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-//DATABASE INFO
-//DB NAME:jcashnewdb
-//TABLE NAME: userandpass
-//COLUMNS: username(20),password(20),balance
-//LOCALHOST URL:"jdbc:mysql://localhost:3306/jcashnewdb
-//ONLINE URLHost:
-/*
- sql12.freesqldatabase.com
-Database name: sql12620100
-Database user: sql12620100
-Database password: hM5CjeARjz
-Port number: 3306
-*/
-//jdbc;mysql;//sql6freesqldatabase.com:3306/sql12620100
+
 public class Methods {
-	//DB INFOS
-	/*
 	private static final String DB_URL = "jdbc:mysql://localhost:3306/jcashnewdb";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "";
-    */
-	private static final String DB_URL = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12620100";
-    private static final String DB_USERNAME = "sql12620100";
-    private static final String DB_PASSWORD = "hM5CjeARjz";
+       private static final String DB_USERNAME = "root";
+     private static final String DB_PASSWORD = "";
     private static int balance = 0;
     public static int getBalance() {return balance;	}
 	public static void setBalance(int balance) {Methods.balance = balance;}
