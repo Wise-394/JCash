@@ -1,10 +1,12 @@
 JCASH:MONEY MANAGEMENT SYSTEM
 
 JCash is a convenient and lightweight money management system that allows you to easily handle your financial transactions. With JCash, you can effortlessly cash in and cash out, enabling you to securely manage your money on the go. 
+
 ![image](https://github.com/Wise-394/JCash/assets/114738222/2ea8d94c-1c84-4e9a-b8e3-31398cd46006)
 
 2.Cash in:
 	The user can easily cash in their money by pressing the Cash In button.
+	
 ![image](https://github.com/Wise-394/JCash/assets/114738222/07da047e-148b-440a-a32d-9a725294742c)
 ![image](https://github.com/Wise-394/JCash/assets/114738222/08a04ed3-a480-4160-8a6a-15034a1535d4)
 
