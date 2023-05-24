@@ -1,3 +1,5 @@
+//in order to for the app to work u need to host a local database using xaamp with the same database name, table name, and column name
+
 JCASH:MONEY MANAGEMENT SYSTEM
 
 JCash is a convenient and lightweight money management system that allows you to easily handle your financial transactions. With JCash, you can effortlessly cash in and cash out, enabling you to securely manage your money on the go. 
