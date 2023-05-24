@@ -13,6 +13,8 @@ JCash is a convenient and lightweight money management system that allows you to
 3.Cash out
 	The user can cash out their money by selecting the Cash Out option in Jcash.
 Upon choosing Cash Out, the system prompts the user to enter the desired amount. Once confirmed, Jcash updates the user's balance automatically.
+
+
 ![image](https://github.com/Wise-394/JCash/assets/114738222/fd84ec82-048c-476d-96a8-2a3918abb4c9)
 ![image](https://github.com/Wise-394/JCash/assets/114738222/7fe6564e-d9e1-416c-aacb-821a3b6ab3ff)
 
