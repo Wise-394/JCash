@@ -1,3 +1,4 @@
+//GDRIVE: https://drive.google.com/drive/folders/1xWRCEFfrYVFyVLbnMVcqzWKj5dBF4uvv?usp=sharing
 //in order to for the app to work u need to host a local database using xaamp with the same database name, table name, and column name
 
 JCASH:MONEY MANAGEMENT SYSTEM
