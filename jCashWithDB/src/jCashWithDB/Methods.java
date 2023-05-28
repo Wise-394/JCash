@@ -5,13 +5,33 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-
+//DATABASE INFO
+//DB NAME:jcashnewdb
+//TABLE NAME: userandpass
+//COLUMNS: username(20),password(20),balance
+//LOCALHOST URL:"jdbc:mysql://localhost:3306/jcashnewdb
+//ONLINE URLHost:
+/*
+ sql12.freesqldatabase.com
+Database name: sql12620100
+Database user: sql12620100
+Database password: hM5CjeARjz
+Port number: 3306
+*/
+//jdbc;mysql;//sql6freesqldatabase.com:3306/sql12620100
+//DB INFOS
+/*
+private static final String DB_URL = "jdbc:mysql://localhost:3306/jcashnewdb";
+private static final String DB_USERNAME = "root";
+private static final String DB_PASSWORD = "";
+*/
 public class Methods {
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/jcashnewdb";
-       private static final String DB_USERNAME = "root";
-     private static final String DB_PASSWORD = "";
+
+	private static final String DB_URL = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12620100";
+    private static final String DB_USERNAME = "sql12620100";
+    private static final String DB_PASSWORD = "hM5CjeARjz";
     private static int balance = 0;
-    public static int getBalance() {return balance;	}
+    public static int getBalance() {return balance;	}	
 	public static void setBalance(int balance) {Methods.balance = balance;}
 	private static String CurrentUser;
 	public static String getCurrentUser() {	return CurrentUser;	}
@@ -112,7 +132,7 @@ public class Methods {
 	        if (moneyToCashOutSTR != null) {
 	            try {
 	                int moneyToCashOut = Integer.parseInt(moneyToCashOutSTR);
-	                if (moneyToCashOut < getBalance()) {
+	                if (moneyToCashOut <= getBalance()) {
 	                    try (Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
 	                        PreparedStatement statement = connection.prepareStatement("UPDATE userandpass SET balance = balance - ? WHERE username = ?");
 	                        statement.setInt(1, moneyToCashOut);
@@ -155,29 +175,24 @@ public class Methods {
 	                        if (amountToSend <= getBalance()) 
 	                        {
 	                            try (Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
-	                                connection.setAutoCommit(false);  // Begin transaction
-
-	                                // Step 1: Deduct the amount from the sender's account
+	                                connection.setAutoCommit(false);  
 	                                PreparedStatement senderStatement = connection.prepareStatement("UPDATE userandpass SET balance = balance - ? WHERE username = ?");
 	                                senderStatement.setInt(1, amountToSend);
 	                                senderStatement.setString(2, getCurrentUser());
 	                                int rowsUpdatedSender = senderStatement.executeUpdate();
-
-	                                // Step 2: Update the recipient's account
 	                                PreparedStatement recipientStatement = connection.prepareStatement("UPDATE userandpass SET balance = balance + ? WHERE username = ?");
 	                                recipientStatement.setInt(1, amountToSend);
 	                                recipientStatement.setString(2, recipientUsername);
 	                                int rowsUpdatedRecipient = recipientStatement.executeUpdate();
-
 	                                if (rowsUpdatedSender > 0 && rowsUpdatedRecipient > 0) {
-	                                    connection.commit();  // Commit transaction
+	                                    connection.commit(); 
 	                                    setBalance(getBalance() - amountToSend);
 	                                    JOptionPane.showMessageDialog(null, "Money sent successfully!");
 	                                    ReceiptFrame rcp = new ReceiptFrame(getCurrentUser(),recipientUsername, "SUCCESFULLY SENT AMMOUNT:", amountToSend);
 	            		                rcp.setVisible(true);
 	            		                connection.close();
 	                                } else {
-	                                    connection.rollback();  // Rollback transaction
+	                                    connection.rollback(); 
 	                                    JOptionPane.showMessageDialog(null, "ERROR: Failed to send money.");
 	                                }
 	                            } catch (SQLException e) {

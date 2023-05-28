@@ -47,6 +47,7 @@ public class LoginPanel extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 276, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(68, 174, 171));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -60,7 +61,7 @@ public class LoginPanel extends JFrame {
 		contentPane.add(txtJcashLogo);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setBackground(new Color(0, 51, 255));
+		btnLogin.setBackground(new Color(24, 77, 75));
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(new Font("Arial", Font.BOLD, 15));
 		btnLogin.addActionListener(new ActionListener() {
@@ -129,7 +130,7 @@ public class LoginPanel extends JFrame {
 		});
 		btnRegister.setForeground(Color.WHITE);
 		btnRegister.setFont(new Font("Arial", Font.BOLD, 15));
-		btnRegister.setBackground(new Color(0, 51, 255));
+		btnRegister.setBackground(new Color(24, 77, 75));
 		btnRegister.setBounds(147, 227, 103, 23);
 		contentPane.add(btnRegister);
 	}

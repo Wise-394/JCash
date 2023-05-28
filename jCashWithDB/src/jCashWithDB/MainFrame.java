@@ -30,22 +30,23 @@ public class MainFrame extends JFrame {
 				
 		setTitle("JCash");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 270, 360);
+		setBounds(100, 100, 334, 360);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(68, 174, 171));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel textGreetUser = new JLabel("Hello, User!");
-		textGreetUser.setForeground(new Color(0, 153, 255));
+		textGreetUser.setForeground(Color.WHITE);
 		textGreetUser.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textGreetUser.setBounds(10, 11, 147, 28);
 		contentPane.add(textGreetUser);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 51, 255));
-		panel.setBounds(10, 50, 234, 62);
+		panel.setBackground(new Color(68, 174, 171));
+		panel.setBounds(20, 63, 266, 73);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -81,11 +82,30 @@ public class MainFrame extends JFrame {
 		});
 		btnCashIn.setForeground(new Color(255, 255, 255));
 		btnCashIn.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		btnCashIn.setBackground(new Color(0, 51, 255));
-		btnCashIn.setBounds(10, 123, 234, 38);
+		btnCashIn.setBackground(new Color(68, 174, 171));
+		btnCashIn.setBounds(20, 147, 120, 40);
 		contentPane.add(btnCashIn);
 		
+		JButton btnSendMoney = new JButton("Send Money");
+		btnSendMoney.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 method.onClickSendMoney();
+			}
+		});
+		btnSendMoney.setForeground(new Color(255, 255, 255));
+		btnSendMoney.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		btnSendMoney.setBackground(new Color(68, 174, 171));
+		btnSendMoney.setBounds(20, 198, 120, 40);
+		contentPane.add(btnSendMoney);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(10, 42, 294, 268);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
 		JButton btnCashOut = new JButton("Cash Out");
+		btnCashOut.setBounds(154, 106, 120, 40);
+		panel_1.add(btnCashOut);
 		btnCashOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 method.onCLickCashOut();
@@ -96,23 +116,11 @@ public class MainFrame extends JFrame {
 		});
 		btnCashOut.setForeground(new Color(255, 255, 255));
 		btnCashOut.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		btnCashOut.setBackground(new Color(0, 51, 255));
-		btnCashOut.setBounds(10, 172, 234, 38);
-		contentPane.add(btnCashOut);
-		
-		JButton btnSendMoney = new JButton("Send Money");
-		btnSendMoney.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 method.onClickSendMoney();
-			}
-		});
-		btnSendMoney.setForeground(new Color(255, 255, 255));
-		btnSendMoney.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		btnSendMoney.setBackground(new Color(0, 51, 255));
-		btnSendMoney.setBounds(10, 221, 234, 38);
-		contentPane.add(btnSendMoney);
+		btnCashOut.setBackground(new Color(68, 174, 171));
 		
 		JButton btnAboutUs = new JButton("ABOUT US");
+		btnAboutUs.setBounds(154, 156, 120, 40);
+		panel_1.add(btnAboutUs);
 		btnAboutUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null,"JCash is a convenient and lightweight money management system that allows you to easily\r\n"
@@ -124,10 +132,8 @@ public class MainFrame extends JFrame {
 			}
 		});
 		btnAboutUs.setForeground(new Color(255, 255, 255));
-		btnAboutUs.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		btnAboutUs.setBackground(new Color(0, 51, 255));
-		btnAboutUs.setBounds(10, 270, 234, 38);
-		contentPane.add(btnAboutUs);
+		btnAboutUs.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		btnAboutUs.setBackground(new Color(68, 174, 171));
 	
 		addWindowListener(new WindowAdapter() {
 			@Override

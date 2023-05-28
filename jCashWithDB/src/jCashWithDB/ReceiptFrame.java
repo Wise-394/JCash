@@ -17,21 +17,13 @@ import java.util.Random;
 public class ReceiptFrame extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public ReceiptFrame(String username,String username1,String transaction,int Ammount) {
 	
 		setBackground(new Color(255, 255, 255));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 270, 339);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 51, 255));
+		contentPane.setBackground(new Color(68, 174, 171));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -104,7 +96,7 @@ public class ReceiptFrame extends JFrame {
 				int randomNumber = rnd.nextInt(10000000);
 				lblUser.setText(username);
 				lblTransaction.setText(transaction);
-				lblAmmount.setText(""+Ammount);
+				lblAmmount.setText("₱"+Ammount);
 				lblDate.setText(""+date);
 				lblRef1.setText(""+randomNumber);
 				if(transaction.equals("SUCCESFULLY SENT AMMOUNT:")) 
