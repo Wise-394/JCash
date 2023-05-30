@@ -1,4 +1,4 @@
-//in order to for the app to work u need to host a local database using xaamp with the same database name, table name, and column name
+//in order to for the app to work u need to host a local database with the same database name, table name, and column name
 
 JCASH:MONEY MANAGEMENT SYSTEM
 
